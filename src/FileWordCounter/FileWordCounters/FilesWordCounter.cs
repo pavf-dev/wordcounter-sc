@@ -14,12 +14,6 @@ public class FilesWordCounter
     
     public async Task<Result<IReadOnlyDictionary<string, int>>> CountWords(string[] filePaths)
     {
-        var validationResult = ValidateFilePaths(filePaths).ToList();
-        if (validationResult.Count != 0)
-        {
-            return validationResult;
-        }
-        
         var tasks = filePaths.Select(filePath =>
         {
             var fileWordCounter = _fileWordCounterFactory.Create();
@@ -45,22 +39,6 @@ public class FilesWordCounter
             }
             
             return Result.Fail(e.Message);
-        }
-    }
-    
-    private static IEnumerable<Error> ValidateFilePaths(IReadOnlyCollection<string> filePaths)
-    {
-        if (filePaths.Count == 0)
-        {
-            yield return new Error("No files to process");
-        }
-        
-        foreach (var filePath in filePaths)
-        {
-            if (!File.Exists(filePath))
-            {
-                yield return new Error($"File {filePath} does not exist");
-            }
         }
     }
     
