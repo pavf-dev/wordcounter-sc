@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using FileWordCounter;
+using FileWordCounter.WordIterators;
 
 namespace FileWordCounterBenchmarks;
 

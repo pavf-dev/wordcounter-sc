@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using FileWordCounter;
+using FileWordCounter.Factories;
+using FileWordCounter.FileWordCounters;
 
 var files = Environment.GetCommandLineArgs().Skip(1).ToArray();
 
-var wordCounterFactory = new WordCounterFactory();
+var wordCounterFactory = new WordCounterDefaultFactory();
 var fileWordCounterFactory = new FileWordCounterFactory(wordCounterFactory);
 var filesWordCounter = new FilesWordCounter(fileWordCounterFactory);
 

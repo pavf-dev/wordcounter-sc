@@ -1,9 +1,6 @@
-﻿namespace FileWordCounter;
+﻿using FileWordCounter.FileWordCounters;
 
-public interface IFileWordCounterFactory
-{
-    FileWordCounter Create();
-}
+namespace FileWordCounter.Factories;
 
 public class FileWordCounterFactory : IFileWordCounterFactory
 {
@@ -14,8 +11,8 @@ public class FileWordCounterFactory : IFileWordCounterFactory
         _wordCounterFactory = wordCounterFactory;
     }
     
-    public FileWordCounter Create()
+    public IFileWordCounter Create()
     {
-        return new FileWordCounter(_wordCounterFactory);
+        return new FileWordCounters.FileWordCounter(_wordCounterFactory);
     }
 }

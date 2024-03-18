@@ -1,4 +1,7 @@
 ﻿using FileWordCounter;
+using FileWordCounter.WordCounterLogic;
+using FileWordCounter.WordIterators;
+using FileWordCounter.WordNormalizers;
 using FluentAssertions;
 
 namespace FileWordCounterTests;

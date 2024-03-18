@@ -1,11 +1,6 @@
 ﻿using System.Collections;
 
-namespace FileWordCounter;
-
-public interface IWordIterator : IEnumerable<string>, IEnumerator<string>
-{
-    void Init(string text, char[] separators);
-}
+namespace FileWordCounter.WordIterators;
 
 public class DefaultWordIterator : IWordIterator
 {

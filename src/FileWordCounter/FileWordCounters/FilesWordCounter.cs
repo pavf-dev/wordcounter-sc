@@ -1,6 +1,7 @@
-﻿using FluentResults;
+﻿using FileWordCounter.Factories;
+using FluentResults;
 
-namespace FileWordCounter;
+namespace FileWordCounter.FileWordCounters;
 
 public class FilesWordCounter
 {

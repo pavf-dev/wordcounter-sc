@@ -1,11 +1,6 @@
 ﻿using Microsoft.Extensions.Primitives;
 
-namespace FileWordCounter;
-
-public interface IWordNormalizer
-{
-    StringValues Normalize(string word);
-}
+namespace FileWordCounter.WordNormalizers;
 
 public class DefaultEnglishWordNormalizer : IWordNormalizer
 {

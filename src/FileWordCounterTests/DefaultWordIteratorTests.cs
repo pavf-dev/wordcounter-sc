@@ -1,4 +1,5 @@
 using FileWordCounter;
+using FileWordCounter.WordIterators;
 using FluentAssertions;
 
 namespace FileWordCounterTests;
@@ -33,7 +34,7 @@ public class DefaultWordIteratorTests
     [TestCase(".")]
     [TestCase("...!?")]
     [TestCase("\n")]
-    public void Returns_no_word_for_text_with_separators(string text)
+    public void Returns_no_word_for_text_with_separators_only(string text)
     {
         var wordIterator = new DefaultWordIterator();
         wordIterator.Init(text, Separators.DefaultSeparators);

@@ -1,6 +1,9 @@
-﻿namespace FileWordCounter;
+﻿using FileWordCounter.Factories;
+using FileWordCounter.WordCounterLogic;
 
-public class FileWordCounter
+namespace FileWordCounter.FileWordCounters;
+
+public class FileWordCounter : IFileWordCounter
 {
     private readonly IWordCounter _wordCounter;
     

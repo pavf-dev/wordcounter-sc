@@ -1,4 +1,7 @@
-﻿namespace FileWordCounter;
+﻿using FileWordCounter.WordIterators;
+using FileWordCounter.WordNormalizers;
+
+namespace FileWordCounter.WordCounterLogic;
 
 public interface IWordCounter
 {

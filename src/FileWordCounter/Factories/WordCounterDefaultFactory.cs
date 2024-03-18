@@ -1,11 +1,10 @@
-﻿namespace FileWordCounter;
+﻿using FileWordCounter.WordCounterLogic;
+using FileWordCounter.WordIterators;
+using FileWordCounter.WordNormalizers;
 
-public interface IWordCounterFactory
-{
-    IWordCounter Create();
-}
+namespace FileWordCounter.Factories;
 
-public class WordCounterFactory : IWordCounterFactory
+public class WordCounterDefaultFactory : IWordCounterFactory
 {
     public IWordCounter Create()
     {
