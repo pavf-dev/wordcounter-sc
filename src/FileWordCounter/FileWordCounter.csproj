@@ -12,4 +12,13 @@
       <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.1.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="TestFiles\text1.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="TestFiles\text2.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
