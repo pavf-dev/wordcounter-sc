@@ -2,9 +2,11 @@
 
 using FileWordCounter;
 
-var files = Environment.GetCommandLineArgs();
-var wordCounterFabric = new WordCounterFabric();
-var filesWordCounter = new FilesWordCounter(wordCounterFabric);
+var files = Environment.GetCommandLineArgs().Skip(1).ToArray();
+
+var wordCounterFactory = new WordCounterFactory();
+var fileWordCounterFactory = new FileWordCounterFactory(wordCounterFactory);
+var filesWordCounter = new FilesWordCounter(fileWordCounterFactory);
 
 var result = await filesWordCounter.CountWords(files);
 
@@ -17,6 +19,8 @@ if (result.IsSuccess)
 }
 else
 {
+    Console.WriteLine("File processing failed because of the following errors:");
+    
     foreach (var error in result.Errors)
     {
         Console.WriteLine(error.Message);

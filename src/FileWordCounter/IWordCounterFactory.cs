@@ -1,11 +1,11 @@
 ﻿namespace FileWordCounter;
 
-public interface IWordCounterFabric
+public interface IWordCounterFactory
 {
     IWordCounter Create();
 }
 
-public class WordCounterFabric : IWordCounterFabric
+public class WordCounterFactory : IWordCounterFactory
 {
     public IWordCounter Create()
     {

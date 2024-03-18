@@ -4,9 +4,9 @@ public class FileWordCounter
 {
     private readonly IWordCounter _wordCounter;
     
-    public FileWordCounter(IWordCounterFabric wordCounterFabric)
+    public FileWordCounter(IWordCounterFactory wordCounterFactory)
     {
-        _wordCounter = wordCounterFabric.Create();
+        _wordCounter = wordCounterFactory.Create();
     }
     
     public async Task<IReadOnlyDictionary<string, int>> CountWords(string filePath)

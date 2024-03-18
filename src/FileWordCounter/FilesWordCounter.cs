@@ -4,24 +4,24 @@ namespace FileWordCounter;
 
 public class FilesWordCounter
 {
-    private readonly IWordCounterFabric _wordCounterFabric;
+    private readonly IFileWordCounterFactory _fileWordCounterFactory;
 
-    public FilesWordCounter(IWordCounterFabric wordCounterFabric)
+    public FilesWordCounter(IFileWordCounterFactory fileWordCounterFactory)
     {
-        _wordCounterFabric = wordCounterFabric;
+        _fileWordCounterFactory = fileWordCounterFactory;
     }
     
     public async Task<Result<IReadOnlyDictionary<string, int>>> CountWords(string[] filePaths)
     {
         var validationResult = ValidateFilePaths(filePaths).ToList();
-        if (validationResult.Any())
+        if (validationResult.Count != 0)
         {
             return validationResult;
         }
         
         var tasks = filePaths.Select(filePath =>
         {
-            var fileWordCounter = new FileWordCounter(_wordCounterFabric);
+            var fileWordCounter = _fileWordCounterFactory.Create();
             
             return fileWordCounter.CountWords(filePath);
         });
@@ -62,7 +62,6 @@ public class FilesWordCounter
             }
         }
     }
-    
     
     private static IReadOnlyDictionary<string, int> CombineResults(IReadOnlyCollection<IReadOnlyDictionary<string, int>> results)
     {
